@@ -1,0 +1,112 @@
+<div class="bgm-audio" id="bgm-audio">
+  <span class="iconfont icon-volume"></span>
+  <span class="iconfont icon-volumemedium"></span>
+</div>
+
+<div class="container">
+  <div class="fullpage" id="pnl-fullpage">
+    <div class="slide">
+      <section class="main">
+        <div class="about-box pull-down <%= noAbout ? 'closed' : 'expand' %>" data-no-about="<%= noAbout %>" id="about-box">
+          <h2>关于我们</strong></h2>
+          <p>“PM Infinity”是我们的婚礼主题，“P”代表我美丽的妻子，“M”当然就是在下啦；“Infinity”代表无限和永恒，是因为“M”和“P”相识于那一年的3.14，咦，这不刚好是数学里的“π”嘛，于是就借助“π”的无穷，寓意我们之间爱无穷。其实还有个巧合我们的求婚戒和对戒都刻有“Infinity”😊。</p>
+          <% if (account.lastCheckin && account.lastCheckin.status != 'present') { %>
+          <p>“PM Infinity”婚礼将于10月5号晚，在九江市盛世麒麟大酒店举行(可在下方参考现场地图)，我和妻子及双方家人恭候大家的光临。据说签到，送祝福可以参加婚礼现场的抽奖哦😜。</p>
+          <% } else { %>
+          <p style="color:red">可在底部输入框发送祝福弹幕，参与现场抽奖，据说颜值高的和祝福多的都更有机会中奖😜。</p>
+          <% } %>
+          <div class="pull-handler" id="btn-pull-down">
+            <div class="rocker">
+              <span class="pole"></span>
+              <span class="circle">
+                <span class="o"></span>
+                <span class="x">&times;</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-box">
+          <div class="gallery">
+            <div><img class="disable-tilt" src="/images/1-740.jpg" data-width="1500" data-height="1000" data-center-offset="740" /></div>
+            <div><img class="disable-tilt" data-lazy="/images/2-839.jpg" data-width="1500" data-height="1000" data-center-offset="839" /></div>
+            <div><img class="disable-tilt" data-lazy="/images/3-935.jpg" data-width="1500" data-height="1000" data-center-offset="935" /></div>
+            <div><img class="disable-tilt" data-lazy="/images/4-498.jpg" data-width="1500" data-height="1000" data-center-offset="498" /></div>
+            <div><img class="disable-tilt" data-lazy="/images/5-1043.jpg" data-width="1500" data-height="1000" data-center-offset="1043" /></div>
+          </div>
+        </div>
+        <div class="wish-box <%= account.lastCheckin && account.lastCheckin.status == 'present' ? 'dock-show' : 'dock-hide' %>" id="wish-box">
+          <form>
+            <div class="wish-form">
+              <div class="input-left">
+                <a href="javascript:;" class="btn-only-icon" id="btn-close-wish"><i class="iconfont icon-menu"></i> </a>
+              </div>
+              <div class="input-box">
+                <textarea class="weui_textarea" id="ipt-wish" placeholder="颜值高的和祝福多的都有机会中奖" rows="1"></textarea>
+              </div>
+              <div class="input-right">
+                <button type="submit" class="btn-only-icon" id="btn-send-wish"><i class="iconfont icon-arrowrightcircle"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <ul class="button-list <%= account.lastCheckin && account.lastCheckin.status == 'present' ? 'dock-hide' : 'dock-show' %>" id="btn-group">
+          <% if (account.accountID) { %>
+          <li>
+            <a href="javascript:;" class="weui_btn weui_btn_primary" id="btn-checkin">
+              <i class="iconfont icon-hand"></i> 签到
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;" class="weui_btn weui_btn_warn" id="btn-wish">
+              <% if (account.hasSentWish) { %>
+              <i class="iconfont icon-location"></i> 发弹幕
+              <% } else { %>
+              <i class="iconfont icon-heart"></i> 送祝福
+              <% } %>
+            </a>
+          </li>
+          <% } %>
+          <li>
+            <a href="javascript:;" class="weui_btn weui_btn_default" id="btn-map">
+              <i class="iconfont icon-map"></i> 现场地图
+            </a>
+          </li>
+        </ul>
+        <div id="checkin-box">
+          <div class="weui_mask_transition" id="checkin-mask"></div>
+          <div class="weui_actionsheet" id="checkin-actionsheet">
+            <div class="weui_actionsheet_menu">
+              <div class="weui_actionsheet_cell">
+                <a href="javascript:;" data-status="coming">我必须去<small></small></a>
+              </div>
+              <div class="weui_actionsheet_cell">
+                <a href="javascript:;" data-status="absent">我来不了<small></small></a>
+              </div>
+              <div class="weui_actionsheet_cell">
+                <a href="javascript:;" data-status="present">我在现场<small></small></a>
+              </div>
+            </div>
+            <div class="weui_actionsheet_action">
+              <div class="weui_actionsheet_cell" id="checkin-cancel">
+                <a href="javascript:;">取消</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% if (account.accountID) { %>
+        <div class="wish-board" id="wish-board"></div>
+        <% } %>
+      </section>
+      <section class="map">
+        <ul class="button-list">
+          <li>
+            <a href="javascript:;" class="weui_btn weui_btn_default" id="btn-back">
+              <i class="iconfont icon-chevronupcircle"></i> 点击返回
+            </a>
+          </li>
+        </ul>
+        <div class="pnl-map" id="pnl-map">
+      </section>
+    </div>
+  </div>
+</div>

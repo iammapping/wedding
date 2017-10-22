@@ -1,0 +1,263 @@
+.fp-slidesContainer {
+  width: 100%!important;
+  transform: none!important;
+}
+
+.fp-controlArrow {
+  display: none;
+}
+
+.fp-slide {
+  width: 100%!important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 0;
+  transition: all .7s linear;
+}
+
+.fp-slide.active {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+}
+
+
+
+#section1, #section3 {
+  background: url('/images/wall-bg.png') repeat 0 0;
+  overflow: hidden;
+}
+
+.theme {
+  color: #FFDB6F;
+  display: block;
+  text-align: center;
+  font-family: 'microsoft yahei';
+  margin-top: 150px;
+  transform-origin: top center;
+}
+
+.theme .alias>li {
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.alias .p img, .alias .m img {
+  height: 150px;
+}
+
+.alias .name {
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.alias .p, .alias .m {
+  width: 200px;
+}
+
+.alias .and {
+  width: 50px;
+  margin: 0 20px;
+}
+
+.alias .and img {
+  width: 100%;
+}
+
+.theme .slagon {
+  margin-top: 50px;
+}
+
+.theme .thanks {
+  font-size: 30px;
+  margin-top: 100px;
+}
+
+.theme .hr {
+  display: block;
+  margin: 0 auto 10px;
+  width: 260px;
+  border: none;
+  height: 2px;
+  background: #FFDB6F;
+  background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 90, from(#FFDB6F), to(rgba(255,219,111,0)));
+}
+
+/*.wall .wish-board .cmt .icon {
+  width: 60px;
+  height: 60px;
+}
+
+.wall .wish-board .cmt .text {
+  font-size: 24px;
+  padding-left: 40px;
+  margin-left: -40px;
+}*/
+
+.section-gallery .slide, #section2 {
+  background-size: cover;
+  background-position: bottom center;
+}
+
+#slide1 {
+  background-image: url(/images/1-740.jpg);
+}
+
+#slide2 {
+  background-image: url(/images/2-839.jpg);
+}
+
+#slide3 {
+  background-image: url(/images/6-809.jpg);
+}
+
+#slide4 {
+  background-image: url(/images/8-908.jpg);
+}
+
+#slide5 {
+  background-image: url(/images/11-786.jpg);
+}
+
+#section2 {
+ background-image: url(/images/cheer.png);
+}
+
+.lottery {
+  margin-left: -100%;
+  margin-right: -100%;
+  text-align: center;
+  transform-origin: top center;
+  white-space: nowrap;
+ }
+
+ .lottery>div {
+  vertical-align: middle;
+ }
+
+.lottery-box {
+  width: 369px;
+  height: 362px;
+  background: url(/images/lottery.png) no-repeat top left;
+  position: relative;
+  margin-right: 100px;
+  display: inline-block;
+}
+
+.lottery-box .head-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 8px solid #FFF;
+  box-shadow: 0 0 15px red;
+  position: absolute;
+  top: -20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.head-img img {
+  width: 100%;
+  height: 100%;
+  background: #FFF;
+}
+
+.lottery-box .nick-name {
+  margin-top: 150px;
+  font-size: 26px;
+}
+
+.lottery-box .btn {
+  margin-top: 65px;
+  display: inline-block;
+  width: 192px;
+  height: 61px;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.btn-start {
+  background-image: url(/images/btn-start.png);
+}
+
+.btn-stop {
+  background-image: url(/images/btn-stop.png);
+}
+
+.winner-list {
+  display: inline-block;
+  width: 382px;
+  height: 394px;
+  background: url(/images/winner-list.png) no-repeat top left;
+}
+
+.winner-list .list {
+  list-style: none;
+  margin: 90px 60px 0;
+  text-align: left;
+  min-height: 250px;
+  background: white;
+  border-radius: 10px;
+}
+
+.winner-list .list>li {
+  padding: 5px;
+}
+
+.list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.list span {
+  font-size: 18px;
+}
+
+@media screen and ( min-height: 400px ) {
+  .theme {
+    margin-top: 70px;
+    transform: scale(.5);
+  }
+
+  .lottery {
+    margin-top: 80px;
+    transform: scale(.5);
+  }
+}
+
+@media screen and ( min-height: 600px ) {
+  .theme {
+    margin-top: 120px;
+    transform: scale(.7);
+  }
+
+  .lottery {
+    margin-top: 130px;
+    transform: scale(.7);
+  }
+}
+
+@media screen and ( min-height: 768px ) {
+  .theme {
+    margin-top: 170px;
+    transform: scale(.8);
+  }
+
+  .lottery {
+    margin-top: 180px;
+    transform: scale(1);
+  }
+}
