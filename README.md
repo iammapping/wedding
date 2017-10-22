@@ -8,6 +8,16 @@
 
 项目分为微信端和大屏端。微信端可以作为电子请柬提前分享给大家，部署的服务器域名最好有备案，不然容易被屏蔽。大屏端是放在婚礼现场的大屏幕上，现场的宾客可以刷弹幕上墙，并且有照片播放页，迎宾页，抽奖页面。另外微信端也作为现场互动的入口，扫码签到可参与抽奖，发弹幕送祝福上大屏幕。
 
+微信端：
+
+![微信端](http://self-storage.b0.upaiyun.com/2017/10/22/150866684532177784.png)
+
+
+
+大屏端：
+
+![大屏端欢迎页](http://self-storage.b0.upaiyun.com/2017/10/22/150867322395988694.png)
+
 ## 安装
 
 下载本项目
@@ -30,7 +40,7 @@
 
 **配置微信公众号**
 
-```json
+```javascript
 > vi config/weixin.js
 module.exports.weixin = {
   // 微信公众号相关设置
@@ -51,7 +61,7 @@ mysql> source wedding.sql;
 
 修改连接参数（使用 Sequelize 替代了 Sails 框架中默认的 Waterline）
 
-```json
+```javascript
 > vi config/connections.js
 sequelizeServer: {
   user: 'xxx',
@@ -76,6 +86,7 @@ sequelizeServer: {
 微信端在 `views/homepage.ejs` 中修改，公告也在此文件修改
 ```html
 <img class="disable-tilt" src="/images/1-740.jpg" data-width="1500" data-height="1000" data-center-offset="740" />
+...
 ```
 
 * data-width：图片宽度
@@ -90,6 +101,7 @@ sequelizeServer: {
 #slide1 {
   background-image: url(/images/1-740.jpg);
 }
+...
 ```
 
 **修改背景音乐**
