@@ -149,7 +149,7 @@ marker.setLabel({
 感谢项目中使用的所有开源项目和服务：
 
 * Mysql、Nodejs、Sails、Sequelize、Bluebird
-* WeUI、jQuery、jquery.fullPage、slick、CommentCoreLibrary(CCL弹幕)、高德地图、iconfront
+* WeUI、jQuery、jquery.fullPage、slick、CommentCoreLibrary(CCL弹幕)、高德地图、iconfont
 
 
 ## License
