@@ -4,6 +4,8 @@
 
 这个项目就是在我婚礼前一个月左右，心血来潮，想在婚礼上搞点事情，给大家留个深刻的印象。最终婚礼上的反响还不错，近期想着与其让这个项目尘封，倒不如开源出来，祝愿所有的 forker 有情人终成眷属。
 
+
+
 ## 介绍
 
 项目分为微信端和大屏端。微信端可以作为电子请柬提前分享给大家，部署的服务器域名最好有备案，不然容易被屏蔽。大屏端是放在婚礼现场的大屏幕上，现场的宾客可以刷弹幕上墙，并且有照片播放页，迎宾页，抽奖页面。另外微信端也作为现场互动的入口，扫码签到可参与抽奖，发弹幕送祝福上大屏幕。
@@ -17,6 +19,8 @@
 大屏端 `/wall` (上下方向键切换不同屏)：
 
 ![大屏端欢迎页](http://self-storage.b0.upaiyun.com/2017/10/22/150867322395988694.png)
+
+
 
 ## 安装
 
@@ -36,6 +40,8 @@
 
 启动：`sails lift`，生产环境加上 `--prod` 参数。
 
+
+
 ## 配置
 
 **配置微信公众号**
@@ -46,7 +52,8 @@ module.exports.weixin = {
   // 微信公众号相关设置
   appid: 'xxx',
   secret: 'xxx',
-  redirectUri: 'http://xxx'
+  // 微信公众号设置的回调地址
+  redirectUri: 'http://xxx/home/resolve'
 };
 ```
 
@@ -91,7 +98,7 @@ sequelizeServer: {
 
 * data-width：图片宽度
 * data-height：图片高度
-* data-center-offset：图片主题中线x轴位置
+* data-center-offset：图片主体中线 x 轴位置
 
 
 
@@ -135,11 +142,53 @@ marker.setLabel({
 });
 ```
 
-`center` 修改中心坐标，`content` 修改坐标说明的文字
+`center` 修改中心坐标，`content` 修改坐标说明的文字。
+
+**修改婚礼日期**
+
+在 `assets/js/home.js` 中修改
+
+```javascript
+var remainDays = Math.floor((new Date(2016, 9, 5) - new Date())/(24*3600*1000));
+```
 
 **彩蛋**
 
 在链接中加上 `?state=present` 可以直接签到在现场，可用于婚礼现场扫码签到。
+
+
+
+## 微信调试
+
+**1. 申请开发测试号**
+
+不管公众号账号主体是个人还是企业，都可以通过[接口测试号申请](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421137522)，申请好后可以拿到测试的 `appID` 和 `appsecret`。
+
+扫码关注测试公众号，只有加入了测试用户列表才有相关的接口权限。
+
+**2. 设置网页服务授权的回调域名**
+
+在*体验接口权限表 > 网页服务 > 网页帐号 >网页授权获取用户基本信息*，修改授权页面回调域名，如：`127.0.0.1:1337`
+
+**3. 修改项目中的配置文件**
+
+```javascript
+module.exports.weixin = {
+  // 微信公众号相关设置
+  appid: '第 1 步拿到的 appID',
+  secret: '第 1 步拿到的 appsecret',
+  // 微信公众号设置的回调地址
+  redirectUri: 'http://第 2 步设置的回调域名/home/resolve'
+};
+```
+
+**4. 使用微信 web 开发者工具测试**
+
+下载[微信web开发者工具](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1455784140)，微信(账号需已关注测试公众号)扫码登录该工具，然后在地址栏打开 `http://127.0.0.1:1337`，如果能正常授权并打开微信端首页，那就大功告成啦。👏
+
+微信手机端实测(前提是手机电脑在同一局域网)，将第 2 - 4 步中的本地 ip 修改为你电脑的局域网 ip，然后在微信手机端访问这个 ip，如：`http://192.168.13.14:1337`。
+
+
 
 
 ## 致谢
@@ -148,7 +197,7 @@ marker.setLabel({
 
 感谢项目中使用的所有开源项目和服务：
 
-* Mysql、Nodejs、Sails、Sequelize、Bluebird
+* Mysql、Nodejs、Sails、Sequelize、Bluebird、wechat-oauth
 * WeUI、jQuery、jquery.fullPage、slick、CommentCoreLibrary(CCL弹幕)、高德地图、iconfont
 
 
