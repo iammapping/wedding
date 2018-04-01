@@ -518,7 +518,19 @@
     this.$btn.append(this.$audio);
     this.initEvent();
 
+    var self = this;
     if (this.options.autoplay) {
+      if (window.WeixinJSBridge) {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+          self.play();
+        }, false);
+      } else {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+          WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            self.play();
+          });
+        }, false);
+      }
       this.play();
     } else {
       this.pause();
