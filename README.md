@@ -12,13 +12,13 @@
 
 微信端 `/`：
 
-![微信端](http://self-storage.b0.upaiyun.com/2017/10/22/150866684532177784.png)
+![微信端](https://cdn.iammapping.com/2017/10/22/150866684532177784.png)
 
 
 
 大屏端 `/wall` (上下方向键切换不同屏)：
 
-![大屏端欢迎页](http://self-storage.b0.upaiyun.com/2017/10/22/150867322395988694.png)
+![大屏端欢迎页](https://cdn.iammapping.com/2017/10/22/150867322395988694.png)
 
 
 
