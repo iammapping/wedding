@@ -23,7 +23,7 @@
     "lodash": "^4.15.0",
     "mysql": "^2.11.1",
     "rc": "~0.5.0",
-    "sails": "~0.11.0",
+    "sails": "~1.5.2",
     "sails-disk": "~0.10.0",
     "sails-hook-sequelize": "1.0.1",
     "wechat-oauth": "^1.1.1"
